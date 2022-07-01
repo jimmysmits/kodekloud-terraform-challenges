@@ -4,15 +4,16 @@ In this challenge we will deploy several Kubernetes resources using terraform. U
 
 Inspect the requirements in detail by clicking on the icons of the interactive architecture diagram on the right and complete the tasks. Once done click on the Check button to validate your work.
 
-Terraform version: 1.1.5 installed on control plane?
+Terraform version: `1.1.5` installed on control plane?
 
 ## Install Terraform
 
 Install terraform binary version=`1.1.5` on `iac-server`
-`sudo apt-get update && sudo apt-get install -y gnupg software-properties-common curl`
-`curl -fsSL https://apt.releases.hashicorp.com/gpg | sudo apt-key add -`
-`sudo apt-add-repository "deb [arch=amd64] https://apt.releases.hashicorp.com $(lsb_release -cs) main"`
-`sudo apt-get update && sudo apt-get install terraform=1.1.5`
+
+- `sudo apt-get update && sudo apt-get install -y gnupg software-properties-common curl`
+- `curl -fsSL https://apt.releases.hashicorp.com/gpg | sudo apt-key add -`
+- `sudo apt-add-repository "deb [arch=amd64] https://apt.releases.hashicorp.com $(lsb_release -cs) main"`
+- `sudo apt-get update && sudo apt-get install terraform=1.1.5`
 
 ## Kubernetes provider
 
