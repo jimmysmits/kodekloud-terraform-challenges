@@ -3,8 +3,9 @@ resource "aws_key_pair" "citadel-key" {
   public_key = file("/root/terraform-challenges/project-citadel/.ssh/ec2-connect-key.pub")
 }
 
-resource "aws_eip" "eip_citadel" {
-
+resource "aws_eip" "eip" {
+  vpc = true
+  instance = aws_instance.citadel.id
   provisioner "local-exec" {
     command = "echo ${self.public_dns} >> /root/citadel_public_dns.txt"
   }
@@ -17,7 +18,7 @@ resource "aws_instance" "citadel" {
   user_data     = file("/root/terraform-challenges/project-citadel/install-nginx.sh")
 }
 
-resource "aws_eip_association" "eip_assoc_citadel" {
+resource "aws_eip_association" "eip_assoc" {
   instance_id   = aws_instance.citadel.id
-  allocation_id = aws_eip.eip_citadel.id
+  allocation_id = aws_eip.eip.id
 }
